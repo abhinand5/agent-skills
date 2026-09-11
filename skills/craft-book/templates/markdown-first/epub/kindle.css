@@ -1,0 +1,194 @@
+body {
+  line-height: 1.45;
+  orphans: 3;
+  widows: 3;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.72em;
+}
+
+h1,
+h2,
+h3 {
+  text-align: left;
+  line-height: 1.18;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+h1 {
+  margin: 0 0 1.15em;
+}
+
+h2 {
+  margin: 1.45em 0 0.55em;
+}
+
+h3 {
+  margin: 1.1em 0 0.45em;
+}
+
+.heading-number {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+h1 .heading-number {
+  display: block;
+  font-size: 0.58em;
+  margin-bottom: 0.45em;
+}
+
+h2 .heading-number {
+  font-size: 0.78em;
+  margin-right: 0.45em;
+}
+
+#title-page,
+.titlepage {
+  text-align: center;
+}
+
+#title-page h1,
+#title-page p,
+.titlepage p {
+  text-align: center;
+}
+
+div.mentalmodel,
+div.failuremode,
+div.checkpoint,
+div.takeaway,
+div.algorithm,
+div.example {
+  border: 0.08em solid currentColor;
+  border-left-width: 0.32em;
+  margin: 1em 0;
+  padding: 0.65em 0.8em 0.1em;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+div.mentalmodel,
+div.algorithm {
+  border-color: #1f6f78;
+}
+
+div.failuremode {
+  border-color: #a76519;
+}
+
+div.checkpoint,
+div.takeaway,
+div.example {
+  border-color: #183b56;
+}
+
+.box-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.45em;
+}
+
+.smallcaps {
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+figure,
+.ebook-figure {
+  margin: 1.1em 0;
+  text-align: center;
+}
+
+figure img,
+.ebook-figure img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 92%;
+}
+
+figcaption {
+  font-size: 0.86em;
+  font-style: italic;
+  margin-top: 0.45em;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.86em;
+  margin: 1em 0;
+  width: 100%;
+}
+
+colgroup col {
+  width: auto;
+}
+
+th,
+td {
+  border-bottom: 0.06em solid #777;
+  padding: 0.35em 0.5em;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+th {
+  border-bottom-width: 0.12em;
+}
+
+th {
+  font-weight: bold;
+}
+
+/* Do not set `display` here: overriding the renderer's `block math` value
+   turns off MathML's own centred block layout. */
+math[display="block"] {
+  margin: 0.9em 0;
+  text-align: center;
+}
+
+pre,
+code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+a {
+  text-decoration: underline;
+}
+
+div.csl-entry {
+  margin: 0.85em 0;
+  text-indent: -1.2em;
+  padding-left: 1.2em;
+}
+
+nav#toc ol {
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+@media (max-width: 30em) {
+  table {
+    font-size: 0.8em;
+  }
+
+  div.mentalmodel,
+  div.failuremode,
+  div.checkpoint,
+  div.takeaway,
+  div.algorithm,
+  div.example {
+    padding-left: 0.62em;
+    padding-right: 0.62em;
+  }
+}

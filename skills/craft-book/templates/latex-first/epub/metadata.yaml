@@ -1,0 +1,15 @@
+---
+title: BOOK TITLE
+subtitle: One-line subtitle
+author:
+  - Prepared for LEARNER
+date: YYYY-MM-DD
+lang: en-GB
+identifier: urn:uuid:REPLACE-WITH-UUID
+description: >-
+  One or two sentences for the e-reader catalogue card.
+subject:
+  - topic one
+  - topic two
+rights: Personal educational edition
+...

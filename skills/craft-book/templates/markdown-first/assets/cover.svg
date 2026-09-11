@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2560" viewBox="0 0 1600 2560" role="img" aria-labelledby="title description">
+  <!-- Kindle cover: 1600x2560 (1.6:1). Edit the text lines; keep 1-4 title lines of <= 14 characters at 132px. -->
+  <title id="title">BOOK TITLE</title>
+  <desc id="description">A navy book cover with cream and gold typography.</desc>
+  <rect width="1600" height="2560" fill="#183b56"/>
+  <rect x="92" y="92" width="1416" height="2376" rx="8" fill="none" stroke="#1f6f78" stroke-width="4"/>
+  <text x="800" y="410" fill="#b8d9dc" font-family="Georgia, serif" font-size="45" letter-spacing="9" text-anchor="middle">A COMPACT FIELD GUIDE</text>
+  <line x1="430" y1="535" x2="1170" y2="535" stroke="#c8872d" stroke-width="8"/>
+  <text x="800" y="900" fill="#f7f2e8" font-family="Georgia, serif" font-size="132" letter-spacing="7" text-anchor="middle">BOOK</text>
+  <text x="800" y="1085" fill="#f7f2e8" font-family="Georgia, serif" font-size="132" letter-spacing="7" text-anchor="middle">TITLE</text>
+  <text x="800" y="1720" fill="#f7f2e8" font-family="Georgia, serif" font-size="60" font-style="italic" text-anchor="middle">One-line subtitle</text>
+  <text x="800" y="2090" fill="#b8d9dc" font-family="Georgia, serif" font-size="44" text-anchor="middle">Context line · course · goal</text>
+  <text x="800" y="2295" fill="#f7f2e8" font-family="Georgia, serif" font-size="38" text-anchor="middle">Prepared for LEARNER</text>
+</svg>

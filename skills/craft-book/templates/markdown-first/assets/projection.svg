@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title description">
+  <title id="title">Projection of a vector</title>
+  <desc id="description">Vector x is decomposed into its projection along direction u and an orthogonal residual.</desc>
+  <defs>
+    <marker id="arrow-gray" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L20,12 L0,24 Z" fill="#777"/></marker>
+    <marker id="arrow-navy" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L20,12 L0,24 Z" fill="#183b56"/></marker>
+    <marker id="arrow-teal" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L20,12 L0,24 Z" fill="#1f6f78"/></marker>
+    <marker id="arrow-gold" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L20,12 L0,24 Z" fill="#c8872d"/></marker>
+  </defs>
+  <rect width="900" height="500" fill="#fff"/>
+  <line x1="95" y1="410" x2="825" y2="410" stroke="#777" stroke-width="3" marker-end="url(#arrow-gray)"/>
+  <line x1="105" y1="425" x2="105" y2="55" stroke="#777" stroke-width="3" marker-end="url(#arrow-gray)"/>
+  <line x1="105" y1="410" x2="750" y2="260" stroke="#1f6f78" stroke-width="7" marker-end="url(#arrow-teal)"/>
+  <line x1="105" y1="410" x2="480" y2="95" stroke="#183b56" stroke-width="7" marker-end="url(#arrow-navy)"/>
+  <line x1="105" y1="410" x2="535" y2="310" stroke="#c8872d" stroke-width="8" marker-end="url(#arrow-gold)"/>
+  <line x1="480" y1="95" x2="535" y2="310" stroke="#c8872d" stroke-width="4" stroke-dasharray="13 11"/>
+  <circle cx="480" cy="95" r="7" fill="#183b56"/>
+  <circle cx="535" cy="310" r="7" fill="#c8872d"/>
+  <text x="835" y="430" fill="#555" font-family="Georgia, serif" font-size="35">x₁</text>
+  <text x="75" y="55" fill="#555" font-family="Georgia, serif" font-size="35">x₂</text>
+  <text x="470" y="70" fill="#183b56" font-family="Georgia, serif" font-size="42" font-style="italic">x</text>
+  <text x="765" y="260" fill="#1f6f78" font-family="Georgia, serif" font-size="42" font-style="italic">u</text>
+  <text x="470" y="370" fill="#a76519" font-family="Georgia, serif" font-size="34">projᵤ(x)</text>
+</svg>

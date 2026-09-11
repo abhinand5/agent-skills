@@ -1,0 +1,116 @@
+% Header-includes for the pandoc -> LuaLaTeX PDF edition.
+% Pandoc's default template already loads fontspec, hyperref, longtable, booktabs, graphicx.
+\usepackage{iftex}
+\ifLuaTeX\else\PackageError{craft-book}{Build the PDF with LuaLaTeX}{Set --pdf-engine=lualatex.}\fi
+
+% --- Page ---
+\usepackage[paperwidth=7in,paperheight=10in,inner=0.78in,outer=0.82in,top=0.76in,bottom=0.82in,headsep=0.18in,footskip=0.34in]{geometry}
+
+% --- Colour ---
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{17202A}
+\definecolor{navy}{HTML}{183B56}
+\definecolor{teal}{HTML}{1F6F78}
+\definecolor{gold}{HTML}{C8872D}
+\definecolor{mist}{HTML}{EEF4F5}
+\definecolor{sand}{HTML}{F7F2E8}
+\definecolor{rose}{HTML}{F7ECE9}
+\color{ink}
+
+% --- Fonts: prefer EB Garamond when installed, else TeX Gyre Pagella (ships with TeX Live) ---
+\IfFontExistsTF{EBGaramond-Regular.otf}{%
+  \setmainfont{EBGaramond-Regular.otf}[BoldFont=EBGaramond-Bold.otf,ItalicFont=EBGaramond-Italic.otf,BoldItalicFont=EBGaramond-BoldItalic.otf,Ligatures={TeX,Common},Numbers={OldStyle,Proportional}]%
+  \newfontfamily\liningfont{EBGaramond-Regular.otf}[Numbers={Lining,Monospaced}]%
+}{%
+  \setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf,Ligatures=TeX]%
+  \newfontfamily\liningfont{texgyrepagella-regular.otf}%
+}
+\setsansfont{texgyreheros-regular.otf}[BoldFont=texgyreheros-bold.otf,ItalicFont=texgyreheros-italic.otf,Scale=MatchLowercase]
+\setmonofont{DejaVuSansMono.ttf}[Scale=MatchLowercase]
+\setmathfont{texgyrepagella-math.otf}
+
+% --- Maths helpers available in every chapter ---
+\usepackage{mathtools}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+
+% --- Lists and tables ---
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.25em,itemsep=0.18em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.2em,topsep=0.35em}
+\renewcommand{\arraystretch}{1.12}
+
+% --- Callout boxes (must match the classes in filters/callouts.lua) ---
+\usepackage[most]{tcolorbox}
+\tcbset{enhanced,boxrule=0.45pt,arc=1.2mm,left=2.2mm,right=2.2mm,top=1.7mm,bottom=1.7mm,before skip=7pt,after skip=7pt,fonttitle=\bfseries}
+\newtcolorbox{mentalmodel}[1][Mental model]{colback=mist,colframe=teal,title={#1}}
+\newtcolorbox{failuremode}[1][Failure mode]{colback=rose,colframe=gold,title={#1}}
+\newtcolorbox{checkpoint}[1][Checkpoint]{colback=sand,colframe=navy,title={#1}}
+\newtcolorbox{takeaway}[1][What survives]{colback=navy!5,colframe=navy,title={#1}}
+\newtcolorbox{example}[1][Worked example]{colback=white,colframe=navy,title={#1}}
+\newtcolorbox{algorithm}[1][Algorithm]{colback=white,colframe=teal,title={#1}}
+
+% --- Running heads ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\itshape\leftmark}
+\fancyhead[RO]{\small\itshape\rightmark}
+\fancyfoot[C]{\small\liningfont\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\liningfont\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% --- Chapter openings ---
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{20pt}%
+  {\parindent\z@\raggedright\normalfont
+   \ifnum\c@secnumdepth>\m@ne
+     {\small\color{teal}\textsc{\@chapapp\ \thechapter}}\par\vskip 8pt
+   \fi
+   {\Huge\color{navy}#1\par}\vskip 9pt
+   {\color{gold}\rule{0.23\linewidth}{1.2pt}}\par\vskip 23pt}}
+\def\@makeschapterhead#1{%
+  \vspace*{20pt}%
+  {\parindent\z@\raggedright\normalfont
+   {\Huge\color{navy}#1\par}\vskip 9pt
+   {\color{gold}\rule{0.23\linewidth}{1.2pt}}\par\vskip 23pt}}
+
+% --- Title page: pandoc calls \maketitle; we replace it with a designed page ---
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+  \thispagestyle{empty}
+  \centering
+  \vspace*{1.0in}
+  \ifdefined\booktagline{\small\color{teal}\textsc{\booktagline}\par}\fi
+  \vspace{0.45in}
+  {\fontsize{32}{38}\selectfont\color{navy}\textsc{\@title}\par}
+  \vspace{0.28in}
+  \ifdefined\booksubtitle{\Large\itshape\booksubtitle\par}\fi
+  \vspace{0.5in}
+  {\color{gold}\rule{0.55\linewidth}{1.2pt}\par}
+  \vspace{0.45in}
+  {\large\@author\par}
+  \vfill
+  {\small\@date\par}
+  \end{titlepage}}
+\makeatother
+
+% --- Paragraphs ---
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{0pt}
+\linespread{1.04}
+\raggedbottom
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\emergencystretch=2em
+\allowdisplaybreaks[2]

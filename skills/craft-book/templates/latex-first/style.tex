@@ -1,0 +1,130 @@
+\usepackage{iftex}
+\ifLuaTeX\else
+  \PackageError{rlspine}{This book requires LuaLaTeX}{Run lualatex book.tex.}
+\fi
+
+\usepackage[paperwidth=7in,paperheight=10in,inner=0.78in,outer=0.82in,top=0.76in,bottom=0.82in,headsep=0.18in,footskip=0.34in]{geometry}
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{17202A}
+\definecolor{navy}{HTML}{183B56}
+\definecolor{teal}{HTML}{1F6F78}
+\definecolor{gold}{HTML}{C8872D}
+\definecolor{mist}{HTML}{EEF4F5}
+\definecolor{sand}{HTML}{F7F2E8}
+\definecolor{rose}{HTML}{F7ECE9}
+\color{ink}
+
+\usepackage{fontspec}
+% Prefer EB Garamond when installed; fall back to TeX Gyre Pagella, which every TeX Live ships.
+\IfFontExistsTF{EBGaramond-Regular.otf}{%
+  \setmainfont{EBGaramond-Regular.otf}[BoldFont=EBGaramond-Bold.otf,ItalicFont=EBGaramond-Italic.otf,BoldItalicFont=EBGaramond-BoldItalic.otf,Ligatures={TeX,Common},Numbers={OldStyle,Proportional}]%
+  \newfontfamily\liningfont{EBGaramond-Regular.otf}[BoldFont=EBGaramond-Bold.otf,ItalicFont=EBGaramond-Italic.otf,Numbers={Lining,Monospaced}]%
+}{%
+  \setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf,Ligatures=TeX]%
+  \newfontfamily\liningfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf]%
+}
+\usepackage[tracking=true,protrusion=true,expansion=false]{microtype}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\given}{\mathrel{|}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+
+\usepackage{booktabs,tabularx,array}
+\usepackage{comment}
+% The EPUB build reads these blocks; the print build deliberately discards them.
+\excludecomment{epubonly}
+\renewcommand{\arraystretch}{1.12}
+% Ragged-right X columns; pandoc's LaTeX reader understands X but not custom column types.
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.25em,itemsep=0.18em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.2em,topsep=0.35em}
+
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\tcbset{enhanced,boxrule=0.45pt,arc=1.2mm,left=2.2mm,right=2.2mm,top=1.7mm,bottom=1.7mm,before skip=7pt,after skip=7pt}
+\newtcolorbox{mentalmodel}{colback=mist,colframe=teal,title={Mental model},fonttitle=\bfseries}
+\newtcolorbox{failuremode}{colback=rose,colframe=gold,title={Failure mode},fonttitle=\bfseries}
+\newtcolorbox{checkpoint}{colback=sand,colframe=navy,title={Checkpoint},fonttitle=\bfseries}
+\newtcolorbox{takeaway}{colback=navy!5,colframe=navy,title={What survives},fonttitle=\bfseries}
+\newtcolorbox{algorithm}[1]{colback=white,colframe=teal,title={#1},fonttitle=\bfseries}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\itshape\leftmark}
+\fancyhead[RO]{\small\itshape\rightmark}
+\fancyfoot[C]{\small\liningfont\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\liningfont\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{20pt}%
+  {\parindent\z@\raggedright\normalfont
+   \ifnum\c@secnumdepth>\m@ne
+     {\small\color{teal}\textsc{Chapter \thechapter}}\par\vskip 8pt
+   \fi
+   {\Huge\color{navy}#1\par}\vskip 9pt
+   {\color{gold}\rule{0.23\linewidth}{1.2pt}}\par\vskip 23pt}}
+\def\@makeschapterhead#1{%
+  \vspace*{20pt}%
+  {\parindent\z@\raggedright\normalfont
+   {\Huge\color{navy}#1\par}\vskip 9pt
+   {\color{gold}\rule{0.23\linewidth}{1.2pt}}\par\vskip 23pt}}
+\makeatother
+
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=navy,
+  citecolor=teal,
+  urlcolor=teal,
+  pdftitle={BOOK TITLE},
+  pdfauthor={Prepared for LEARNER},
+  pdfsubject={One-line subtitle},
+  pdfkeywords={topic one, topic two}
+}
+
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{0pt}
+\linespread{1.04}
+\raggedbottom
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\emergencystretch=2em
+\allowdisplaybreaks[2]
+
+\newcommand{\term}[1]{\textbf{#1}}
+\newcommand{\why}{\paragraph{Why this is true.}}
+\newcommand{\practice}[1]{\begin{checkpoint}#1\end{checkpoint}}
+\newenvironment{readingnote}
+  {\par\smallskip\noindent\begingroup\small\color{teal}}
+  {\par\endgroup\smallskip}
+\newenvironment{intuitionnote}
+  {\par\smallskip\noindent\begingroup\color{navy}}
+  {\par\endgroup\smallskip}
+\newcommand{\reading}[1]{\begin{readingnote}\textsc{Read deeper:} #1\end{readingnote}}
+\newcommand{\intuition}[1]{\begin{intuitionnote}\textbf{Picture it.}~#1\end{intuitionnote}}

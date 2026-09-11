@@ -1,0 +1,22 @@
+---
+# Book metadata shared by every edition. Edit the values; keep the keys.
+title: "BOOK TITLE"
+subtitle: "One-line subtitle"
+tagline: "A compact field guide"          # small caps above the title on the PDF title page
+author:
+  - "Prepared for LEARNER"
+date: "YYYY-MM"
+lang: en-GB                               # also sets spelling expectations for the prose
+identifier: "urn:uuid:REPLACE-WITH-UUID"  # uuidgen; keep stable across revisions
+description: >-
+  One or two sentences for the e-reader catalogue card.
+subject:
+  - topic one
+  - topic two
+rights: "Personal educational edition"
+
+# Citations: references.bib + citeproc, numbered in text as [n] via the CSL below.
+bibliography: references.bib
+link-citations: true
+reference-section-title: "References"
+...
