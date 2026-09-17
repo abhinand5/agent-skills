@@ -37,6 +37,24 @@ Requires Python 3, PyMuPDF, k2pdfopt 2.55 or compatible, and NumPy for deep
 verification. The converter can be supplied with `--k2pdfopt`, `K2PDFOPT_BIN`,
 `PATH`, or a project's `tools/vendor/k2pdfopt`.
 
+### [autoresearch](skills/autoresearch)
+
+Turn a planning conversation into a durable, resumable autonomous research loop, and a
+finished loop into evidence its successor can trust. Three file-only workflows, selected
+by where the conversation is: **init** (default) crystallises the plan into `GOAL.md`,
+an optional `ADVISORY.md` task DAG, `STATE.template.md`, and the repo-root `AGENTS.md`
+pointer; **`--close`** audits a finished loop (STATE all-terminal, every reported number
+traceable through `CLAIMS.md`, `FINDINGS.md` present with a human-readable Summary and
+the five-claim spot-check) and reports gaps without editing anything; **`--reset`** moves
+the finished loop's one-line outcome into `AGENTS.md`'s Prior loops table and clears the
+current pointer for the next loop.
+
+Artifact templates live in `references/` and are the whole contract — every task carries
+a checkable acceptance criterion, every number carries the artifact it came from plus a
+command that recomputes it, and `NOT MEASURED — <reason>` is an expected, valuable
+result. The skill never executes the loop's tasks, never writes `FINDINGS.md` itself,
+and never commits.
+
 ## Install
 
 With the [skills CLI](https://github.com/vercel-labs/skills):
@@ -52,6 +70,7 @@ git clone https://github.com/abhinand5/agent-skills ~/dev/agent-skills
 ln -s ~/dev/agent-skills/skills/craft-book ~/.agents/skills/craft-book   # Codex / shared
 ln -s ~/.agents/skills/craft-book ~/.claude/skills/craft-book             # Claude Code
 ln -s ~/dev/agent-skills/skills/kindle-pdf-reflow ~/.agents/skills/kindle-pdf-reflow
+ln -s ~/dev/agent-skills/skills/autoresearch ~/.agents/skills/autoresearch
 ```
 
 ## Licence
