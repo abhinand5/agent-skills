@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kindle PDF Reflow"
+  short_description: "Reflow PDF books for Kindle Paperwhite"
+  default_prompt: "Use $kindle-pdf-reflow to make a sample-first Kindle PDF from this book."

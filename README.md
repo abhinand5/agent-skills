@@ -26,6 +26,17 @@ python3 ~/.agents/skills/craft-book/scripts/new_book.py --pipeline markdown \
 cd my-book && make && make verify && make pages
 ```
 
+### [kindle-pdf-reflow](skills/kindle-pdf-reflow)
+
+Convert PDF books into visually reflowed, Paperwhite-sized PDFs using a calibrated
+Kindle size-3 profile. The workflow creates a representative 16-source-page trial,
+waits for on-device approval, then builds and verifies the complete book while
+preserving printed equations, figures, typography, searchable text, and bookmarks.
+
+Requires Python 3, PyMuPDF, k2pdfopt 2.55 or compatible, and NumPy for deep
+verification. The converter can be supplied with `--k2pdfopt`, `K2PDFOPT_BIN`,
+`PATH`, or a project's `tools/vendor/k2pdfopt`.
+
 ## Install
 
 With the [skills CLI](https://github.com/vercel-labs/skills):
@@ -40,6 +51,7 @@ Or by hand — clone and symlink the skills you want into your agent's skills di
 git clone https://github.com/abhinand5/agent-skills ~/dev/agent-skills
 ln -s ~/dev/agent-skills/skills/craft-book ~/.agents/skills/craft-book   # Codex / shared
 ln -s ~/.agents/skills/craft-book ~/.claude/skills/craft-book             # Claude Code
+ln -s ~/dev/agent-skills/skills/kindle-pdf-reflow ~/.agents/skills/kindle-pdf-reflow
 ```
 
 ## Licence
