@@ -66,6 +66,20 @@ holding the line even on insistence and offering an understanding check instead.
 once you have engaged or ask. The same rules map onto proofs, problem sets, and written
 reports. Stateless: nothing is written to disk.
 
+### [plan-autoresearch](skills/plan-autoresearch)
+
+The conversation before an autoresearch loop. Grounds itself in the repo first
+(`AGENTS.md` prior loops, earlier `FINDINGS.md`, every cited artifact path), then
+interviews you one question at a time to establish exactly what `autoresearch` init
+harvests — the decision the loop feeds, mission, checkable done-when, known facts with
+paths, prohibitions, environment, tasks, out-of-scope. Every plan must pass (or you must
+explicitly waive) seven stress tests: decidability, cheapest kill, unwelcome result,
+confounds & baselines, evidence audit, budget & stop rule, scope fence. It proposes
+alternatives and cheaper experiments, states disagreement once with evidence and then
+complies, recording the overruled objection as a named risk. Ends with an in-chat plan
+brief and a mode/loop-name recommendation; writes no files. `--quick` skips the
+interview and just stress-tests a plan you already have.
+
 ## Install
 
 With the [skills CLI](https://github.com/vercel-labs/skills):
@@ -83,6 +97,7 @@ ln -s ~/.agents/skills/craft-book ~/.claude/skills/craft-book             # Clau
 ln -s ~/dev/agent-skills/skills/kindle-pdf-reflow ~/.agents/skills/kindle-pdf-reflow
 ln -s ~/dev/agent-skills/skills/autoresearch ~/.agents/skills/autoresearch
 ln -s ~/dev/agent-skills/skills/virtual-ta ~/.agents/skills/virtual-ta
+ln -s ~/dev/agent-skills/skills/plan-autoresearch ~/.agents/skills/plan-autoresearch
 ```
 
 ## Licence

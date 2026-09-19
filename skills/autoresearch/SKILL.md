@@ -211,7 +211,8 @@ init fills the Current loop section fresh.
   loop agent's job, not this skill's.
 - **Write FINDINGS.md.** The loop agent writes it; this skill audits it.
 - **Set research direction.** The user plans; this skill crystallizes the plan into
-  artifacts. If the plan is unclear, ask — do not invent tasks.
+  artifacts. If the plan is unclear or has not been stress-tested, suggest
+  `plan-autoresearch` (or ask) — do not invent tasks.
 - **Commit anything.** Artifacts under `temp/` are typically gitignored; AGENTS.md is
   never committed (it's the operator's local pointer file). Leave VCS state alone unless
   the user explicitly asks.
