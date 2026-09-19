@@ -55,7 +55,7 @@ command that recomputes it, and `NOT MEASURED — <reason>` is an expected, valu
 result. The skill never executes the loop's tasks, never writes `FINDINGS.md` itself,
 and never commits.
 
-### [teaching-assistant](skills/teaching-assistant)
+### [virtual-ta](skills/virtual-ta)
 
 A learning-focused TA stance for working through your own coursework or self-study.
 Invoked by name, it asks once whether the work is graded or self-study, then explains
@@ -82,7 +82,7 @@ ln -s ~/dev/agent-skills/skills/craft-book ~/.agents/skills/craft-book   # Codex
 ln -s ~/.agents/skills/craft-book ~/.claude/skills/craft-book             # Claude Code
 ln -s ~/dev/agent-skills/skills/kindle-pdf-reflow ~/.agents/skills/kindle-pdf-reflow
 ln -s ~/dev/agent-skills/skills/autoresearch ~/.agents/skills/autoresearch
-ln -s ~/dev/agent-skills/skills/teaching-assistant ~/.agents/skills/teaching-assistant
+ln -s ~/dev/agent-skills/skills/virtual-ta ~/.agents/skills/virtual-ta
 ```
 
 ## Licence
