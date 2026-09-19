@@ -69,6 +69,34 @@ command that recomputes it, and `NOT MEASURED — <reason>` is an expected, valu
 result. The skill never executes the loop's tasks, never writes `FINDINGS.md` itself,
 and never commits.
 
+#### Using the two together on a research project
+
+The pair is a loop lifecycle. One loop answers one question; the program's memory is the
+chain of `FINDINGS.md` files linked from `AGENTS.md`.
+
+1. **Plan** — `/plan-autoresearch <question>`. Answer the interview, let it read your
+   prior loops, and do not skip the stress tests: *cheapest kill* and *unwelcome result*
+   are the two that save the most GPU-hours. If you already have a plan, `--quick`.
+2. **Init** — `/autoresearch <loop_name>` in the same session (or paste the brief). Take
+   advisory mode when the tasks are enumerable and each has a checkable acceptance;
+   goal mode when the work is genuinely exploratory. Read the generated `ADVISORY.md`
+   failure-modes section before running — it is the part that stops loop N+1 repeating
+   loop N's mistakes.
+3. **Run** — start a fresh agent session in the repo and tell it to read `AGENTS.md` and
+   begin. Iterations are file-driven, so context compaction and restarts are safe: the
+   agent re-reads `STATE.md`, takes the first `PENDING` task whose deps are `DONE`, and
+   continues. Check `STATE.md`'s questions-for-operator section between wakes.
+4. **Close** — `/autoresearch <loop_name> --close` when the board is all `DONE` /
+   `BLOCKED`. It audits; it does not finish for the agent. Gaps go back to the loop.
+5. **Reset, then plan the next one** — `/autoresearch <loop_name> --reset` moves the
+   outcome into Prior loops. The next `/plan-autoresearch` reads that row and the
+   FINDINGS it points at, so each loop starts where the last one ended.
+
+Habits that keep AI/ML loops honest: gate every training or GPU task behind an explicit
+acceptance check on the cheaper task before it; make the baseline a task, not an
+assumption; write `NOT MEASURED — <reason>` rather than a substitute metric; keep
+`AGENTS.md` and `temp/` out of git.
+
 ### [virtual-ta](skills/virtual-ta)
 
 A learning-focused TA stance for working through your own coursework or self-study.
