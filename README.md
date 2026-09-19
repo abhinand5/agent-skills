@@ -55,6 +55,17 @@ command that recomputes it, and `NOT MEASURED — <reason>` is an expected, valu
 result. The skill never executes the loop's tasks, never writes `FINDINGS.md` itself,
 and never commits.
 
+### [teaching-assistant](skills/teaching-assistant)
+
+A learning-focused TA stance for working through your own coursework or self-study.
+Invoked by name, it asks once whether the work is graded or self-study, then explains
+concepts fully, asks before answering, and gives progressive hints. In **graded** mode
+it never completes graded work for you — pseudocode and minor localised fixes only,
+holding the line even on insistence and offering an understanding check instead. In
+**self-study** mode it stays Socratic-first but hands over real code and full solutions
+once you have engaged or ask. The same rules map onto proofs, problem sets, and written
+reports. Stateless: nothing is written to disk.
+
 ## Install
 
 With the [skills CLI](https://github.com/vercel-labs/skills):
@@ -71,6 +82,7 @@ ln -s ~/dev/agent-skills/skills/craft-book ~/.agents/skills/craft-book   # Codex
 ln -s ~/.agents/skills/craft-book ~/.claude/skills/craft-book             # Claude Code
 ln -s ~/dev/agent-skills/skills/kindle-pdf-reflow ~/.agents/skills/kindle-pdf-reflow
 ln -s ~/dev/agent-skills/skills/autoresearch ~/.agents/skills/autoresearch
+ln -s ~/dev/agent-skills/skills/teaching-assistant ~/.agents/skills/teaching-assistant
 ```
 
 ## Licence
