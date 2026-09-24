@@ -3,7 +3,17 @@
 Skills I use with Claude Code and Codex. Each skill is a folder under `skills/` with a
 `SKILL.md` (instructions), optional reference docs, scripts, and templates.
 
-## Skills
+## Available skills
+
+| Skill | What it does | Reach for it when |
+| --- | --- | --- |
+| [craft-book](skills/craft-book) | Writes a personalised technical book for one named reader and ships it as print PDF, Kindle EPUB, and Markdown from a single source, behind a conversion QA gate. | You want a book, textbook, study guide, refresher, or "something I can read on my Kindle" — or want existing notes turned into one. |
+| [kindle-pdf-reflow](skills/kindle-pdf-reflow) | Reflows a PDF book into a Paperwhite-sized PDF using a device-approved size-3 profile, preserving equations, figures, typography, searchable text, and bookmarks. | An existing PDF is painful to read on a Kindle and you want a 16-page trial before converting the whole book. |
+| [plan-autoresearch](skills/plan-autoresearch) | The planning conversation before an autoresearch loop: interviews you, stress-tests the plan against seven fixed checks, proposes cheaper alternatives, and ends with an in-chat plan brief. Writes no files. | You want a research loop planned, or an existing plan grilled — `--quick` skips the interview. |
+| [autoresearch](skills/autoresearch) | Turns a plan into a durable, resumable autonomous loop (`GOAL.md`, `ADVISORY.md`, `STATE.md`, `AGENTS.md`) and audits or resets a finished loop (`--close`, `--reset`). | You are starting a loop, closing one out, or resetting for the next one. It never runs the loop's tasks itself. |
+| [virtual-ta](skills/virtual-ta) | A learning-focused TA stance: explains concepts fully, asks before answering, gives progressive hints, and withholds graded solutions entirely in graded mode. | You are working through your own coursework or self-study and want to understand it, not have it done for you. |
+
+## Skill details
 
 ### [craft-book](skills/craft-book)
 
