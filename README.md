@@ -9,6 +9,7 @@ Skills I use with Claude Code and Codex. Each skill is a folder under `skills/` 
 | --- | --- | --- |
 | [craft-book](skills/craft-book) | Writes a personalised technical book for one named reader and ships it as print PDF, Kindle EPUB, and Markdown from a single source, behind a conversion QA gate. | You want a book, textbook, study guide, refresher, or "something I can read on my Kindle" — or want existing notes turned into one. |
 | [kindle-pdf-reflow](skills/kindle-pdf-reflow) | Reflows a PDF book into a Paperwhite-sized PDF using a device-approved size-3 profile, preserving equations, figures, typography, searchable text, and bookmarks. | An existing PDF is painful to read on a Kindle and you want a 16-page trial before converting the whole book. |
+| [grill-research](skills/grill-research) | Relentless one-question-at-a-time interrogation of a research plan, a result, or a draft's claims against a fifteen-item epistemic checklist, ending in an in-chat verdict ledger. Writes no files. | You want an experiment, eval, result, or paper grilled before you trust it or spend compute on it. |
 | [plan-autoresearch](skills/plan-autoresearch) | The planning conversation before an autoresearch loop: interviews you, stress-tests the plan against seven fixed checks, proposes cheaper alternatives, and ends with an in-chat plan brief. Writes no files. | You want a research loop planned, or an existing plan grilled — `--quick` skips the interview. |
 | [autoresearch](skills/autoresearch) | Turns a plan into a durable, resumable autonomous loop (`GOAL.md`, `ADVISORY.md`, `STATE.md`, `AGENTS.md`) and audits or resets a finished loop (`--close`, `--reset`). | You are starting a loop, closing one out, or resetting for the next one. It never runs the loop's tasks itself. |
 | [virtual-ta](skills/virtual-ta) | A learning-focused TA stance: explains concepts fully, asks before answering, gives progressive hints, and withholds graded solutions entirely in graded mode. | You are working through your own coursework or self-study and want to understand it, not have it done for you. |
@@ -46,6 +47,22 @@ preserving printed equations, figures, typography, searchable text, and bookmark
 Requires Python 3, PyMuPDF, k2pdfopt 2.55 or compatible, and NumPy for deep
 verification. The converter can be supplied with `--k2pdfopt`, `K2PDFOPT_BIN`,
 `PATH`, or a project's `tools/vendor/k2pdfopt`.
+
+### [grill-research](skills/grill-research)
+
+`grill-me`, but for research: it resolves what can be *believed* rather than what to
+build. Works in three modes inferred from what you bring — **plan** (before it runs),
+**result** (you have a number: what does it show?), and **claim** (a paper, report, or
+post). It reads the plan, logs, results files, and draft first and re-derives numbers
+read-only where cheap, then interrogates one question at a time, each with a
+recommended answer, refusing vague answers until they become a number, a path, or an
+explicit unknown. Every applicable item on a fifteen-item checklist must end as pass,
+fail, waived, or n/a: question sharpness, stakes, prediction on record, construct
+validity, baseline, confounds, identification, variance and forking paths, evidence
+audit, cheapest kill, unwelcome result, generalization, prior work, skeptical reviewer,
+and claim–evidence fit. Ends with a verdict ledger — sharpened question, verdict table,
+ranked fails with fixes, overruled objections, and the single next step. Independent of
+the autoresearch pair; writes no files and runs no experiments.
 
 ### [plan-autoresearch](skills/plan-autoresearch)
 
@@ -133,6 +150,7 @@ git clone https://github.com/abhinand5/agent-skills ~/dev/agent-skills
 ln -s ~/dev/agent-skills/skills/craft-book ~/.agents/skills/craft-book   # Codex / shared
 ln -s ~/.agents/skills/craft-book ~/.claude/skills/craft-book             # Claude Code
 ln -s ~/dev/agent-skills/skills/kindle-pdf-reflow ~/.agents/skills/kindle-pdf-reflow
+ln -s ~/dev/agent-skills/skills/grill-research ~/.agents/skills/grill-research
 ln -s ~/dev/agent-skills/skills/plan-autoresearch ~/.agents/skills/plan-autoresearch
 ln -s ~/dev/agent-skills/skills/autoresearch ~/.agents/skills/autoresearch
 ln -s ~/dev/agent-skills/skills/virtual-ta ~/.agents/skills/virtual-ta
